@@ -1,59 +1,186 @@
 # 📊 Stock Price Prediction from Financial News  
 
-## Project Description  
-Our team uses publicly available financial news headlines and historical stock market data to analyze and predict short-term stock price movements. Leveraging machine learning techniques such as sentiment analysis, feature engineering, and deep learning models—including pre-trained language models (LLMs) like FinBERT—you will build a pipeline that extracts market signals from news content. This will help address the real-world challenge of interpreting financial news for timely investment decisions.  
-
-Our main objectives are to clean and preprocess textual data, apply LLMs for sentiment or embedding extraction, align it with market data, and build a predictive model to forecast next-day stock trends. One approach could be to treat this as a classification problem, though other strategies are possible.  
-
 ---
-
-## Brief Overview  
-This project explores the intersection of **financial news and market prediction**, aiming to forecast **short-term stock price movements** using **machine learning** and **large language models (LLMs)**.  
-
-Our pipeline integrates **news sentiment analysis** with **historical stock data** to extract meaningful signals and deliver predictions that could support **timely and informed investment decisions**.  
-
----
-
-## Objectives  
--  **Preprocess** financial news text and align it with stock market data.  
--  **Apply LLMs (e.g., FinBERT)** for sentiment scoring and embedding extraction.  
-- **Engineer features** that capture market sentiment and trading signals.  
-- **Train predictive models** (classification & deep learning) to forecast next-day price trends.  
--  **Evaluate model performance** using accuracy, precision, recall, and related metrics.  
-
----
-
-## Approach  (yet to complete)
----
-
-## Tech Stack  (subject to change)
-- **Languages & Libraries:** Python, Pandas, NumPy, Scikit-learn, PyTorch/TensorFlow  
-- **LLMs:** FinBERT, pre-trained embedding models  
-- **Visualization:** Matplotlib, Seaborn  
-- **Environment:** VS Code 
-
----
-
-## Contributors 👩‍💻
- **Shambhavi Bhandari**  
- **Karla Nguyen**  
- **Judy Ojewia**  
- **Madeleine Kim**  
- **Vanshika Turkar**  
- **Samriddhi Matharu**  
- **Chris Chen**
 
 **Challenge Advisor:** *Atena Sadeghi*  
 
----
+**AI Studio Coach:** *Leah Dsouza*
 
-## Impact  
-By combining **natural language processing** with **financial data modeling**, this project highlights how **AI-driven insights** can enhance decision-making in dynamic markets. Our approach demonstrates:  
+**Program:** *Break Through Tech AI Studio*
 
-- The potential of **news sentiment** as a predictive signal.  
-- How **LLMs can be integrated** with structured financial data.  
-- Real-world applications for **investors, analysts, and financial technology platforms**.  
+**Host Company:** *Salesforce*
 
 ---
 
-✅ *This repository represents our ongoing work with Salesforce to build data-driven solutions for real-world financial challenges.*  
+## 🎯 **Project Highlights**
+
+- Built an end-to-end ML pipeline combining financial news sentiment and historical stock data.
+- Applied FinBERT (LLM) to extract daily sentiment signals from news headlines.
+- Evaluated multiple models (Lasso, Random Forest, XGBoost), selecting XGBoost as the final model.
+- Used SHAP to interpret model behavior and assess the real impact of news features.
+- Delivered insights on the limitations of sentiment-based prediction for short-term market forecasting.
+
+---
+
+## 🏗️ **Project Overview**
+
+This project explores the intersection of **financial news and market prediction**, aiming to forecast **short-term stock price movements** using machine **learning and large language models (LLMs)**.
+
+Developed as part of the **Break Through Tech AI Studio** in collaboration with **Salesforce**, our goal was to investigate whether **public news sentiment**, when combined with historical market data, can improve predictions of the **next-day opening price of the S&P 500**.
+
+---
+
+## 💼 **Business Question**
+
+Can financial news sentiment combined with historical market data improve the accuracy of short-term stock price predictions?
+
+---
+
+## 📈 Business Impact
+
+- Supports investment and risk management decisions
+- Improves understanding of how public perception impacts market value
+- Demonstrates a scalable framework applicable to other sectors influenced by news
+
+---
+
+## 👩🏽‍💻 **Setup and Installation**
+
+### Repository Structure
+```bash
+├── archive/ # Kaggle Data
+│   ├── cnbc_headlines.csv
+│   ├── guardian_headlines.csv
+│   └── reuters_headlines.csv
+├── notebooks/
+│   ├── Salesforce1A_Data.ipynb # Data EDA & Analysis
+│   └── Salesforce1A_Model.ipynb # Model
+├── docs/
+│   ├── Salesforce1A_AI Studio Final Presentation_Fall 2025 AI Studio.pptx # Presentation slides
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## ℹ️ Steps to Run the Project
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/your-repo-name.git
+cd your-repo-name
+```
+
+2. **Install dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+3. **Access the datasets**
+
+- Financial News Headlines (Kaggle): https://www.kaggle.com/datasets/notlucasp/financial-news-headlines
+- Historical stock data retrieved using yfinance: https://github.com/ranaroussi/yfinance
+
+4. Run the notebooks
+- Start with exploratory data analysis notebooks
+- Proceed to feature engineering and model training notebooks
+
+---
+
+## 📊 Data Exploration
+
+### Data Sources
+
+Market Data
+- Source: Yahoo Finance (yfinance)
+- Target: S&P 500
+- Features: Open, High, Low, Close, Volume, rolling averages, volatility
+
+Financial News
+- Source: Kaggle Financial News Headlines dataset
+- Providers: CNBC, Guardian, Reuters
+- NLP Model: FinBERT 
+
+### Feature Engineering
+
+- Daily sentiment probabilities (positive, negative, neutral)
+- Number of headlines per day
+- Strong sentiment indicators
+- Lagged price features and rolling averages
+
+### Key EDA Insights
+
+- S&P 500 provides a stable modeling target
+- Price features show strong autocorrelation
+- News sentiment signals are weak when averaged daily
+
+(EDA visualizations such as sentiment distributions and price trends are included in the notebooks.)
+
+---
+
+## 🧠 Model Development
+
+### Models Tested
+
+1. Lasso Regression
+2. Random Forest
+3. XGBoost (Final Model)
+
+### Final Model: XGBoost
+
+- Captures nonlinear price dynamics
+- Performs best overall among tested models
+- Tuned using time-series cross-validation
+- Interpreted using SHAP values
+
+---
+
+## 📈 Results & Key Findings
+
+### Performance Summary
+
+- Lasso: Lowest RMSE and MAE, highest R²
+- XGBoost: Strong performance, second-best overall
+- Random Forest: Underperformed during volatile periods
+
+### SHAP Insights
+
+- Predictions rely heavily on recent price history (Close, High, rolling averages)
+- News sentiment features contribute minimally
+- Confirms risk of data leakage when predicting next-day open using same-day close
+
+---
+
+## 🧪 Discussion & Reflection
+
+### What Worked
+- Robust preprocessing and feature engineering
+- Strong baseline models for comparison
+- Clear interpretability using SHAP
+
+### What Didn’t
+- News sentiment alone is not a strong short-term signal
+- Daily averaging of headlines dilutes meaningful events
+- Potential leakage inflates performance metrics
+
+---
+
+## 🚀 Next Steps
+
+- Address data leakage by redesigning prediction targets
+- Explore event-based NLP features instead of sentiment averages
+- Use embeddings or topic modeling for richer news representations
+- Investigate hybrid architectures separating price and news modeling
+
+---
+
+## 🛠️ Tech Stack
+
+- Languages: Python
+- ML & NLP: Scikit-learn, XGBoost, Transformers, FinBERT
+- Data: Pandas, NumPy, yfinance
+- Visualization: Matplotlib, Seaborn
+- Explainability: SHAP
+- Environment: Google Colab, VS Code
+
+
