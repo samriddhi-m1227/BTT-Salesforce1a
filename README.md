@@ -55,6 +55,7 @@ Can financial news sentiment combined with historical market data improve the ac
 ├── notebooks/
 │   ├── Salesforce1A_Data.ipynb # Data EDA & Analysis
 │   └── Salesforce1A_Model.ipynb # Model
+│   └── Samriddhi_M_Model_Salesforce_1a (1) # Samriddhi: Extended notebook with prep for a streamlit app
 ├── docs/
 │   ├── Salesforce1A_AI Studio Final Presentation_Fall 2025 AI Studio.pptx # Presentation slides
 ├── requirements.txt
