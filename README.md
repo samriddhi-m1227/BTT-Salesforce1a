@@ -174,6 +174,22 @@ Financial News
 - Investigate hybrid architectures separating price and news modeling
 
 ---
+## 🔗 Interactive Streamlit Deployment
+
+👉 Completed by Samriddhi Matharu: An extended, user-facing deployment of this project is available as a separate Streamlit application, where the trained XGBoost model is packaged into an interactive interface for inference, visualization, and exploration.
+
+What the extension adds:
+- A live Streamlit app for next-day market movement forecasting
+- Conversion of predicted log returns into an implied next-day open price
+- Interactive visualizations, backtesting, and model explainability
+- A beta-adjusted watchlist impact view translating market forecasts into ticker-level estimates
+- End-to-end ML workflow: research → modeling → deployment
+
+🔗 [Extended Streamlit App Repository](https://github.com/samriddhi-m1227/ml-market-forecast-app)
+
+🔗 [Live Demo](https://ml-market-forecast-app-tnlgyrsfku5rdujzn3l4jv.streamlit.app/)
+
+This extension focuses on ML deployment and productization
 
 ## 🛠️ Tech Stack
 
